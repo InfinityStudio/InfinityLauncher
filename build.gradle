@@ -15,6 +15,14 @@ allprojects {
 
     sourceCompatibility = 1.7
     targetCompatibility = 1.7
+
+    dependencies {
+        compile 'org.apache.logging.log4j:log4j-api:2.6.2'
+        compile 'org.apache.logging.log4j:log4j-core:2.6.2'
+        compile 'junit:junit:4.12'
+        compile 'com.google.code.gson:gson:2.7'
+    }
+
     repositories {
         jcenter()
     }
@@ -25,9 +33,6 @@ subprojects {
         from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
     }
 	dependencies {
-        //log4j
-        compile 'org.apache.logging.log4j:log4j-api:2.6.2'
-        compile 'org.apache.logging.log4j:log4j-core:2.6.2'
 
         //common project
         runtime project(":InfinityDownloader")

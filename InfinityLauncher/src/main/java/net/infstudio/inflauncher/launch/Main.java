@@ -14,3 +14,15 @@
  * You should have received a copy of the GNU General Public License
  * along with Infinity Launcher.  If not, see <http://www.gnu.org/licenses/>.
  */
+package net.infstudio.inflauncher.launch;
+
+/**
+ * @author gonglinyuan
+ *         created on 19:18, 2016/7/18.
+ */
+public class Main {
+
+    public static void main(String[] args) {
+        System.out.println("hello world");
+    }
+}
