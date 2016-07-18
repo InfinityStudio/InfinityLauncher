@@ -17,9 +17,9 @@
 package net.infstudio.inflauncher.game;
 
 public class Version {
-    private int major;
-    private int minor;
-    private int patch;
+    private final int major;
+    private final int minor;
+    private final int patch;
 
     public Version(int major, int minor, int patch) {
         this.major = major;
@@ -28,9 +28,10 @@ public class Version {
     }
 
     public Version(String verStr) {
-        this.major = Integer.parseInt(verStr.split("\\.")[0]);
-        this.minor = Integer.parseInt(verStr.split("\\.")[1]);
-        this.patch = Integer.parseInt(verStr.split("\\.")[2]);
+        String[] strings = verStr.split("\\.");
+        this.major = Integer.parseInt(strings[0]);
+        this.minor = Integer.parseInt(strings[1]);
+        this.patch = Integer.parseInt(strings[2]);
     }
 
     @Override
