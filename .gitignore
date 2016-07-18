@@ -1,21 +1,24 @@
-# Whitelist mode
-/*
+*/build
+*.class
+# Package Files
+*.jar
+*.war
+*.ear
 
-# Git Files
-!.gitignore
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
 
-# GitHub Files
-!README.md
-!LICENSE
+.gradle
+.nb-gradle
 
-# Java Files
-!src/
-!.editorconfig
-!license-header.txt
+.idea
+*.iml
+*.ipr
+*.iws
 
-# Gradle Files
-!build.gradle
-!gradle/
-!gradle.properties
-!gradlew
-!gradlew.bat
+*.bat
+*.log
+.mine*
+*.json
+
+run

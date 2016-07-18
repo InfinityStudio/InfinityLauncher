@@ -1,0 +1,3 @@
+rootProject.name = 'InfinityLauncher'
+include 'InfinityDownloader', 'InfinityLauncher', 'InfinityLightLauncher', 'InfinityServerLauncher', 'MaterialLookAndFeel'
+

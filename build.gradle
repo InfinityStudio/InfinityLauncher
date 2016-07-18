@@ -1,17 +1,31 @@
 group 'net.infstudio'
 version '1.0-SNAPSHOT'
 
-apply plugin: 'java'
-apply plugin: 'idea'
-apply plugin: 'eclipse'
 
-sourceCompatibility = 1.7
-targetCompatibility = 1.7
+
 
 repositories {
-    mavenCentral()
+    jcenter()
 }
 
-dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.11'
+allprojects {
+    apply plugin: 'java'
+    apply plugin: 'idea'
+    apply plugin: 'eclipse'
+
+    sourceCompatibility = 1.7
+    targetCompatibility = 1.7
+    repositories {
+        jcenter()
+    }
+    
+	dependencies {
+        //log4j
+        compile 'org.apache.logging.log4j:log4j-api:2.6.2'
+        compile 'org.apache.logging.log4j:log4j-core:2.6.2'
+        
+        //common project
+        compile project(":InfinityDownloader")
+        compile project(":MaterialLookAndFeel")
+	}
 }
