@@ -16,12 +16,10 @@
  */
 package net.infstudio.inflauncher.game;
 
-import java.util.List;
-
 /**
  * A class contains some information of a Minecraft instance.
  */
-public class Minecraft {
+public class Minecraft implements IResource {
     private String id;
     private String type;
     private String arguments;
@@ -84,5 +82,10 @@ public class Minecraft {
 
     public void setJar(String jar) {
         this.jar = jar;
+    }
+
+    @Override
+    public String getURL() {
+        return "";
     }
 }

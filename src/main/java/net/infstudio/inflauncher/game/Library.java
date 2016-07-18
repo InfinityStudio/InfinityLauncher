@@ -16,7 +16,7 @@
  */
 package net.infstudio.inflauncher.game;
 
-public class Library {
+public class Library implements IResource {
     private String groupId;
     private String artifactId;
     private String version;
@@ -88,5 +88,10 @@ public class Library {
 
     public void setChecksums(String[] checksums) {
         this.checksums = checksums;
+    }
+
+    @Override
+    public String getURL() {
+        return "";
     }
 }

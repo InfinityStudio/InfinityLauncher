@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with Infinity Launcher.  If not, see <http://www.gnu.org/licenses/>.
  */
-package net.infstudio.inflauncher.downloading;
+package net.infstudio.inflauncher.game.downloading;
 
 public class DownloadManager {
 

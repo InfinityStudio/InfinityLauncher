@@ -1,0 +1,64 @@
+/**
+ * This file is part of Infinity Launcher.
+ * <p>
+ * Infinity Launcher is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ * <p>
+ * Infinity Launcher is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ * <p>
+ * You should have received a copy of the GNU General Public License
+ * along with Infinity Launcher.  If not, see <http://www.gnu.org/licenses/>.
+ */
+package net.infstudio.inflauncher.game;
+
+/**
+ * A file which makes modification to the Minecraft.
+ */
+public class Mod implements IResource {
+    private String modname;
+    private String modid;
+    private String dependicies;
+    private String author;
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public String getDependicies() {
+        return dependicies;
+    }
+
+    public void setDependicies(String dependicies) {
+        this.dependicies = dependicies;
+    }
+
+    public String getModid() {
+        return modid;
+    }
+
+    public void setModid(String modid) {
+        this.modid = modid;
+    }
+
+    public String getModname() {
+        return modname;
+    }
+
+    public void setModname(String modname) {
+        this.modname = modname;
+    }
+
+    @Override
+    public String getURL() {
+        return "";
+    }
+}
