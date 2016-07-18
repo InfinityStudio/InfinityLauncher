@@ -16,8 +16,6 @@
  */
 package net.infstudio.inflauncher.game;
 
-import java.util.List;
-
 /**
  * A class contains some information of a Minecraft instance.
  */
