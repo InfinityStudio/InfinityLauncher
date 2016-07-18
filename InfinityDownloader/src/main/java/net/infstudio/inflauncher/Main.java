@@ -16,25 +16,29 @@
  */
 package net.infstudio.inflauncher;
 
-import java.io.BufferedReader;
+import org.apache.commons.io.FileUtils;
+import org.apache.logging.log4j.LogManager;
+
+import java.io.File;
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+import java.net.URL;
 
 /**
  * @author gonglinyuan
  *         created on 15:38, 2016/7/18.
  */
 public class Main {
+    public static DownloadLogFrame logFrame = new DownloadLogFrame();
     public static void main(String[] args) {
-        System.out.println("hello world");
-        Path versionPath = Paths.get(".minecraft/versions/1.10.2/1.10.2.json");
-        try (BufferedReader reader = Files.newBufferedReader(versionPath, StandardCharsets.UTF_8)) {
-            // blabla
+        //TODO Test
+        logFrame.getPanel1().setVisible(true);
+        LogManager.getLogger("InfinityDownloader").info("Hello World");
+        try {
+            URL mcURL = new URL("http://s3.amazonaws.com/Minecraft.Download/versions/1.10.2/1.10.2.json");
+            FileUtils.copyInputStreamToFile(mcURL.openStream(), new File("1.10.2.json"));
         } catch (IOException e) {
-            e.printStackTrace();
+            LogManager.getLogger("InfinityLauncher").error(e);
         }
+
     }
 }

@@ -18,14 +18,19 @@ allprojects {
     repositories {
         jcenter()
     }
-    
+}
+
+subprojects {
+    jar {
+        from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    }
 	dependencies {
         //log4j
         compile 'org.apache.logging.log4j:log4j-api:2.6.2'
         compile 'org.apache.logging.log4j:log4j-core:2.6.2'
-        
+
         //common project
-        compile project(":InfinityDownloader")
-        compile project(":MaterialLookAndFeel")
+        runtime project(":InfinityDownloader")
+        runtime project(":MaterialLookAndFeel")
 	}
 }
