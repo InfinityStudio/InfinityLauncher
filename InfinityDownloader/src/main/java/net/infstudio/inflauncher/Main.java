@@ -16,6 +16,8 @@
  */
 package net.infstudio.inflauncher;
 
+import net.infstudio.inflauncher.game.downloading.InfinityDownloader;
+import net.infstudio.inflauncher.game.downloading.URLConnectionTimer;
 import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.LogManager;
 
@@ -31,11 +33,11 @@ public class Main {
     public static DownloadLogFrame logFrame = new DownloadLogFrame();
     public static void main(String[] args) {
         //TODO Test
-        logFrame.getPanel1().setVisible(true);
-        LogManager.getLogger("InfinityDownloader").info("Hello World");
+        InfinityDownloader.logger.info("Hello world!");
         try {
             URL mcURL = new URL("http://s3.amazonaws.com/Minecraft.Download/versions/1.10.2/1.10.2.json");
             FileUtils.copyInputStreamToFile(mcURL.openStream(), new File("1.10.2.json"));
+            InfinityDownloader.logger.info("Ping to http://stackoverflow.com: time=" + URLConnectionTimer.testTime("http://stackoverflow.com"));
         } catch (IOException e) {
             LogManager.getLogger("InfinityLauncher").error(e);
         }

@@ -1,9 +1,6 @@
 group 'net.infstudio'
 version '1.0-SNAPSHOT'
 
-
-
-
 repositories {
     jcenter()
 }

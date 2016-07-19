@@ -16,17 +16,57 @@
  */
 package net.infstudio.inflauncher.game.downloading;
 
+import java.net.URL;
+
 /**
  * A mirror to the maven/minecraft repository.
  */
 public abstract class Mirror {
+    private String name;
+    private String description;
+    private String provider;
     private MirrorType mirrorType;
+    private URL url;
+    private boolean isSSL;
 
-    public Mirror(MirrorType mirrorType) {
+    public Mirror(String description, boolean isSSL, MirrorType mirrorType, String name, String provider, URL url) {
+        this.description = description;
+        this.isSSL = isSSL;
         this.mirrorType = mirrorType;
+        this.name = name;
+        this.provider = provider;
+        this.url = url;
+    }
+
+    public Mirror(String description, boolean isSSL, MirrorType mirrorType, String name, URL url) {
+        this.description = description;
+        this.isSSL = isSSL;
+        this.mirrorType = mirrorType;
+        this.name = name;
+        this.url = url;
     }
 
     public MirrorType getMirrorType() {
         return mirrorType;
+    }
+
+    public URL getUrl() {
+        return url;
+    }
+
+    public boolean isSSL() {
+        return isSSL;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getProvider() {
+        return provider;
     }
 }
