@@ -1,0 +1,3 @@
+[submodule "JMCCC"]
+	path = JMCCC
+	url = https://github.com/InfinityStudio/JMCCC.git

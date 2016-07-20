@@ -32,7 +32,6 @@ subprojects {
 	dependencies {
 
         //common project
-        runtime project(":InfinityDownloader")
         runtime project(":MaterialLookAndFeel")
 	}
 }

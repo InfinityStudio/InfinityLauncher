@@ -1,8 +1,0 @@
-dependencies {
-    //commons-io
-    compile 'commons-io:commons-io:2.5'
-    
-    //HttpClient
-    compile 'org.apache.httpcomponents:httpcore:4.4.5'
-    compile 'org.apache.httpcomponents:httpclient:4.5'
-}
