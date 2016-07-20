@@ -1,4 +1,6 @@
 # InfinityLauncher
+
+[![Join the chat at https://gitter.im/InfinityStudio/InfinityLauncher](https://badges.gitter.im/InfinityStudio/InfinityLauncher.svg)](https://gitter.im/InfinityStudio/InfinityLauncher?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 An advanced launcher for Minecraft.
 
 ## Projects
