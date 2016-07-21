@@ -16,7 +16,11 @@
  */
 package net.infstudio.inflauncher;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 public class InfinityLauncher {
+    public static final Logger LOGGER = LogManager.getLogger("InfinityLauncher");
     public static void main(String[] args) {
 
     }
