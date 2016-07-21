@@ -13,6 +13,10 @@ allprojects {
     sourceCompatibility = 1.7
     targetCompatibility = 1.7
 
+    tasks.withType(JavaCompile) {
+    	options.encoding = 'UTF-8'
+	}
+
     dependencies {
         compile 'org.apache.logging.log4j:log4j-api:2.6.2'
         compile 'org.apache.logging.log4j:log4j-core:2.6.2'
@@ -29,9 +33,11 @@ subprojects {
     jar {
         from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
     }
+
 	dependencies {
 
         //common project
         runtime project(":MaterialLookAndFeel")
 	}
 }
+
