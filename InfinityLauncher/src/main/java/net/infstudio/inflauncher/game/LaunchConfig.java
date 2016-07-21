@@ -16,21 +16,18 @@
  */
 package net.infstudio.inflauncher.game;
 
-import org.junit.Test;
-import org.to2mbn.jmccc.auth.OfflineAuthenticator;
-import org.to2mbn.jmccc.option.LaunchOption;
-import org.to2mbn.jmccc.option.MinecraftDirectory;
-
 /**
  * @author gonglinyuan
- *         created on 21:34, 2016/7/21.
+ *         created on 21:55, 2016/7/21.
  */
-public class LaunchTest {
+public class LaunchConfig {
+    private final String minecraftDirectory;
+    private final String version;
+    private final int authenticator; // 0 : offline
 
-    @Test
-    public void launchVanilla() throws Exception {
-        MinecraftDirectory dir = new MinecraftDirectory("run/.minecraft");
-        LaunchOption option = new LaunchOption("1.10.2", new OfflineAuthenticator("gonglinyuan"), dir);
-        Launch.launchVanilla(option);
+    private LaunchConfig(String minecraftDirectory, String version, int authenticator) {
+        this.minecraftDirectory = minecraftDirectory;
+        this.version = version;
+        this.authenticator = authenticator;
     }
 }
