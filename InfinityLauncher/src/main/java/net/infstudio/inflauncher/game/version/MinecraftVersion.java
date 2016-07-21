@@ -17,7 +17,6 @@
 package net.infstudio.inflauncher.game.version;
 
 import com.google.gson.GsonBuilder;
-import org.junit.Test;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -30,9 +29,8 @@ import java.nio.file.Paths;
  * @author gonglinyuan
  *         created on 20:30, 2016/7/18.
  */
-public class MinecraftVersionTest {
+public class MinecraftVersion {
 
-    @Test
     public void test() {
         Path versionPath = Paths.get("run", ".minecraft", "versions", "1.10.2", "1.10.2.json");
         try (BufferedReader reader = Files.newBufferedReader(versionPath, StandardCharsets.UTF_8)) {
