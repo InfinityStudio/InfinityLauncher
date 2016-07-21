@@ -1,4 +1,4 @@
-/**
+/*
  * Infinity Launcher for Minecraft.
  * <p>
  * This program is free software: you can redistribute it and/or modify
