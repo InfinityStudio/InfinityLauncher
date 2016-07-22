@@ -24,10 +24,28 @@ public class LaunchConfig {
     private final String minecraftDirectory;
     private final String version;
     private final int authenticator; // 0 : offline
+    private final String name;
 
-    private LaunchConfig(String minecraftDirectory, String version, int authenticator) {
+    public LaunchConfig(String minecraftDirectory, String version, int authenticator, String name) {
         this.minecraftDirectory = minecraftDirectory;
         this.version = version;
         this.authenticator = authenticator;
+        this.name = name;
+    }
+
+    public String getMinecraftDirectory() {
+        return minecraftDirectory;
+    }
+
+    public String getVersion() {
+        return version;
+    }
+
+    public int getAuthenticator() {
+        return authenticator;
+    }
+
+    public String getName() {
+        return name;
     }
 }

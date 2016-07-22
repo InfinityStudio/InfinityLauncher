@@ -17,11 +17,16 @@
 package net.infstudio.inflauncher.game;
 
 import net.infstudio.inflauncher.InfinityLauncher;
+import org.to2mbn.jmccc.auth.Authenticator;
+import org.to2mbn.jmccc.auth.OfflineAuthenticator;
 import org.to2mbn.jmccc.launch.LaunchException;
 import org.to2mbn.jmccc.launch.Launcher;
 import org.to2mbn.jmccc.launch.LauncherBuilder;
 import org.to2mbn.jmccc.launch.ProcessListener;
 import org.to2mbn.jmccc.option.LaunchOption;
+import org.to2mbn.jmccc.option.MinecraftDirectory;
+
+import java.io.IOException;
 
 public class Launch {
     public static void launchVanilla(LaunchOption option) {
@@ -45,6 +50,29 @@ public class Launch {
             });
         } catch (LaunchException e) {
             InfinityLauncher.LOGGER.error("Error when launching", e);
+        }
+    }
+
+    public static void launchVanilla(LaunchConfig config) {
+        MinecraftDirectory directory = new MinecraftDirectory(config.getMinecraftDirectory());
+        Authenticator authenticator;
+        try {
+            int authenticatorId = config.getAuthenticator();
+            switch (authenticatorId) {
+                case 0:
+                    authenticator = new OfflineAuthenticator(config.getName());
+                    break;
+                default:
+                    throw new NoSuchAuthenticatorException(authenticatorId);
+            }
+        } catch (NoSuchAuthenticatorException e) {
+            InfinityLauncher.LOGGER.error(e);
+            authenticator = new OfflineAuthenticator(config.getName());
+        }
+        try {
+            Launch.launchVanilla(new LaunchOption(config.getVersion(), authenticator, directory));
+        } catch (IOException e) {
+            InfinityLauncher.LOGGER.error(e);
         }
     }
 }

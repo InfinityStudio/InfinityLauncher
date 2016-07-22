@@ -14,14 +14,17 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package net.infstudio.inflauncher;
+package net.infstudio.inflauncher.game;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.to2mbn.jmccc.auth.AuthenticationException;
 
-public class InfinityLauncher {
-    public static final Logger LOGGER = LogManager.getLogger("InfinityLauncher");
-    public static void main(String[] args) {
+/**
+ * @author gonglinyuan
+ *         created on 11:52, 2016/7/22.
+ */
+public class NoSuchAuthenticatorException extends AuthenticationException {
 
+    public NoSuchAuthenticatorException(int number) {
+        super("No such authenticator numbered " + number + " . The config file might be corrupted.");
     }
 }

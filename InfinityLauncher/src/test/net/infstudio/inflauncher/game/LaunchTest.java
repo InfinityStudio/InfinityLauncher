@@ -28,9 +28,15 @@ import org.to2mbn.jmccc.option.MinecraftDirectory;
 public class LaunchTest {
 
     @Test
-    public void launchVanilla() throws Exception {
+    public void launchVanilla1() throws Exception {
         MinecraftDirectory dir = new MinecraftDirectory("run/.minecraft");
         LaunchOption option = new LaunchOption("1.10.2", new OfflineAuthenticator("gonglinyuan"), dir);
         Launch.launchVanilla(option);
+    }
+
+    @Test
+    public void launchVanilla2() throws Exception {
+        LaunchConfig config = new LaunchConfig("run/.minecraft", "1.10.2", 0, "gonglinyuan");
+        Launch.launchVanilla(config);
     }
 }
