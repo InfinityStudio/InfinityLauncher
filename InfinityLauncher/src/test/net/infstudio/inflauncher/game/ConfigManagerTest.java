@@ -14,19 +14,19 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package net.infstudio.inflauncher;
+package net.infstudio.inflauncher.game;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.junit.Test;
 
-public class InfinityLauncher {
+/**
+ * @author gonglinyuan
+ *         created on 22:28, 2016/7/23.
+ */
+public class ConfigManagerTest {
 
-    public static final Logger LOGGER = LogManager.getLogger("InfinityLauncher");
-    public static final Gson GSON = new GsonBuilder().create();
-
-    public static void main(String[] args) {
-
+    @Test
+    public void test() throws Exception {
+        ConfigManager.load();
+        Launch.launchVanilla(ConfigManager.getCONFIG().getLaunchConfig());
     }
 }

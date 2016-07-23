@@ -21,6 +21,9 @@ package net.infstudio.inflauncher.game;
  *         created on 21:55, 2016/7/21.
  */
 public class LaunchConfig {
+
+    private static final String VERSION_DEFAULT = "1.10.2";
+
     private final String minecraftDirectory;
     private final String version;
     private final int authenticator; // 0 : offline
@@ -33,12 +36,16 @@ public class LaunchConfig {
         this.name = name;
     }
 
+    public LaunchConfig() {
+        this(".minecraft", VERSION_DEFAULT, 0, "");
+    }
+
     public String getMinecraftDirectory() {
-        return minecraftDirectory;
+        return minecraftDirectory == null ? ".minecraft" : minecraftDirectory;
     }
 
     public String getVersion() {
-        return version;
+        return version == null ? VERSION_DEFAULT : version;
     }
 
     public int getAuthenticator() {
@@ -46,6 +53,6 @@ public class LaunchConfig {
     }
 
     public String getName() {
-        return name;
+        return name == null ? "" : name;
     }
 }
