@@ -18,6 +18,8 @@ package net.infstudio.inflauncher;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import net.infstudio.inflauncher.config.ConfigManager;
+import net.infstudio.inflauncher.game.Launch;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -34,6 +36,8 @@ public class InfinityLauncher {
     }
 
     public static void main(String[] args) {
-
+        ConfigManager.load();
+        Launch.launchVanilla(ConfigManager.getCONFIG().getLaunchConfig());
+        ConfigManager.save();
     }
 }

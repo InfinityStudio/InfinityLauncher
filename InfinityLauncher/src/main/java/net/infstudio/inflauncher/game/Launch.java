@@ -17,6 +17,7 @@
 package net.infstudio.inflauncher.game;
 
 import net.infstudio.inflauncher.InfinityLauncher;
+import net.infstudio.inflauncher.config.LaunchConfig;
 import org.to2mbn.jmccc.auth.Authenticator;
 import org.to2mbn.jmccc.auth.OfflineAuthenticator;
 import org.to2mbn.jmccc.launch.LaunchException;

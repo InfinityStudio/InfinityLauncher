@@ -16,6 +16,7 @@
  */
 package net.infstudio.inflauncher.game;
 
+import net.infstudio.inflauncher.config.ConfigManager;
 import org.junit.Test;
 
 /**

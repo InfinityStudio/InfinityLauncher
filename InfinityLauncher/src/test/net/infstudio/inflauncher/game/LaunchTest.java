@@ -16,6 +16,7 @@
  */
 package net.infstudio.inflauncher.game;
 
+import net.infstudio.inflauncher.config.LaunchConfig;
 import org.junit.Test;
 import org.to2mbn.jmccc.auth.OfflineAuthenticator;
 import org.to2mbn.jmccc.option.LaunchOption;
