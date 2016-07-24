@@ -19,11 +19,13 @@ package net.infstudio.inflauncher.game;
 import net.infstudio.inflauncher.InfinityLauncher;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 
 /**
  * @author gonglinyuan
@@ -32,20 +34,27 @@ import java.nio.file.Paths;
 public class ConfigManager {
 
     private static String CONFIG_FILE = "run/infinityLauncher.json";
+    private static Path CONFIG_PATH = Paths.get(CONFIG_FILE);
     private static Config CONFIG;
 
     public static void load() {
-        Path path = Paths.get(CONFIG_FILE);
-        try (BufferedReader reader = Files.newBufferedReader(path, StandardCharsets.UTF_8)) {
+        try (BufferedReader reader = Files.newBufferedReader(CONFIG_PATH, StandardCharsets.UTF_8)) {
             CONFIG = InfinityLauncher.GSON.fromJson(reader, Config.class);
         } catch (IOException e) {
             InfinityLauncher.LOGGER.warn("Unable to read " + CONFIG_FILE + ", using the default config.");
             CONFIG = new Config();
         }
+        CONFIG = CONFIG.getRevised();
     }
 
     public static void save() {
-
+        try (BufferedWriter writer = Files.newBufferedWriter(CONFIG_PATH, StandardCharsets.UTF_8,
+            StandardOpenOption.WRITE, StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING)) {
+            InfinityLauncher.GSON_PRETTY.toJson(CONFIG, writer);
+        } catch (IOException e) {
+            InfinityLauncher.LOGGER.error("Unable to write into " + CONFIG_FILE +
+                ". Config changes might be discarded.");
+        }
     }
 
     public static Config getCONFIG() {

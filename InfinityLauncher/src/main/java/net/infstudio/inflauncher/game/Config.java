@@ -22,10 +22,18 @@ package net.infstudio.inflauncher.game;
  */
 public class Config {
 
-    private LaunchConfig launchConfig;
+    private final LaunchConfig launchConfig;
+
+    private Config(LaunchConfig launchConfig) {
+        this.launchConfig = launchConfig;
+    }
 
     public Config() {
         launchConfig = new LaunchConfig();
+    }
+
+    public Config getRevised() {
+        return new Config(launchConfig.getRevised());
     }
 
     public LaunchConfig getLaunchConfig() {

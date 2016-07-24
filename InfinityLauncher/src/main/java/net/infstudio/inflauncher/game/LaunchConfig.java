@@ -40,12 +40,19 @@ public class LaunchConfig {
         this(".minecraft", VERSION_DEFAULT, 0, "");
     }
 
+    public LaunchConfig getRevised() {
+        return new LaunchConfig(minecraftDirectory == null ? ".minecraft" : minecraftDirectory,
+            version == null ? VERSION_DEFAULT : version,
+            authenticator,
+            name == null ? "" : name);
+    }
+
     public String getMinecraftDirectory() {
-        return minecraftDirectory == null ? ".minecraft" : minecraftDirectory;
+        return minecraftDirectory;
     }
 
     public String getVersion() {
-        return version == null ? VERSION_DEFAULT : version;
+        return version;
     }
 
     public int getAuthenticator() {
@@ -53,6 +60,6 @@ public class LaunchConfig {
     }
 
     public String getName() {
-        return name == null ? "" : name;
+        return name;
     }
 }

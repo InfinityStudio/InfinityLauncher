@@ -25,6 +25,13 @@ public class InfinityLauncher {
 
     public static final Logger LOGGER = LogManager.getLogger("InfinityLauncher");
     public static final Gson GSON = new GsonBuilder().create();
+    public static final Gson GSON_PRETTY;
+
+    static {
+        GsonBuilder builder = new GsonBuilder();
+        builder.setPrettyPrinting();
+        GSON_PRETTY = builder.create();
+    }
 
     public static void main(String[] args) {
 

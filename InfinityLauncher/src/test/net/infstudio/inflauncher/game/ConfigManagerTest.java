@@ -28,5 +28,6 @@ public class ConfigManagerTest {
     public void test() throws Exception {
         ConfigManager.load();
         Launch.launchVanilla(ConfigManager.getCONFIG().getLaunchConfig());
+        ConfigManager.save();
     }
 }
