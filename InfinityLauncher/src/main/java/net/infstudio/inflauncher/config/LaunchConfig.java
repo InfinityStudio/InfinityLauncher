@@ -16,6 +16,8 @@
  */
 package net.infstudio.inflauncher.config;
 
+import org.to2mbn.jmccc.option.WindowSize;
+
 /**
  * @author gonglinyuan
  *         created on 21:55, 2016/7/21.
@@ -23,28 +25,36 @@ package net.infstudio.inflauncher.config;
 public class LaunchConfig {
 
     private static final String VERSION_DEFAULT = "1.10.2";
+    private static final int MEMORY_DEFAULT = 1024;
 
     private final String minecraftDirectory;
     private final String version;
     private final int authenticator; // 0 : offline
     private final String name;
+    private final int memory;
+    private final int[] windowSize;
 
-    public LaunchConfig(String minecraftDirectory, String version, int authenticator, String name) {
+    public LaunchConfig(String minecraftDirectory, String version, int authenticator, String name, int memory,
+                        int[] windowSize) {
         this.minecraftDirectory = minecraftDirectory;
         this.version = version;
         this.authenticator = authenticator;
         this.name = name;
+        this.memory = memory;
+        this.windowSize = windowSize;
     }
 
     public LaunchConfig() {
-        this(".minecraft", VERSION_DEFAULT, 0, "");
+        this(".minecraft", VERSION_DEFAULT, 0, "", MEMORY_DEFAULT, null);
     }
 
     public LaunchConfig getRevised() {
         return new LaunchConfig(minecraftDirectory == null ? ".minecraft" : minecraftDirectory,
             version == null ? VERSION_DEFAULT : version,
             authenticator,
-            name == null ? "" : name);
+            name == null ? "" : name,
+            memory < 0 ? MEMORY_DEFAULT : memory,
+            getRevisedWindowSize());
     }
 
     public String getMinecraftDirectory() {
@@ -61,5 +71,29 @@ public class LaunchConfig {
 
     public String getName() {
         return name;
+    }
+
+    public int getMemory() {
+        return memory;
+    }
+
+    private int[] getRevisedWindowSize() {
+        if (windowSize == null) return null;
+        if (windowSize.length >= 1 && windowSize[0] != 0) {
+            return new int[]{1};
+        } else if (windowSize.length >= 3 && windowSize[0] == 0) {
+            return new int[]{0, windowSize[1], windowSize[2]};
+        } else {
+            return null;
+        }
+    }
+
+    public WindowSize getWindowSize() {
+        if (windowSize == null) return null;
+        if (windowSize[0] == 1) {
+            return WindowSize.fullscreen();
+        } else {
+            return WindowSize.window(windowSize[1], windowSize[2]);
+        }
     }
 }

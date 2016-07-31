@@ -30,6 +30,7 @@ import org.to2mbn.jmccc.option.MinecraftDirectory;
 import java.io.IOException;
 
 public class Launch {
+
     public static void launchVanilla(LaunchOption option) {
         try {
             Launcher launcher = LauncherBuilder.buildDefault();
@@ -71,7 +72,10 @@ public class Launch {
             authenticator = new OfflineAuthenticator(config.getName());
         }
         try {
-            Launch.launchVanilla(new LaunchOption(config.getVersion(), authenticator, directory));
+            LaunchOption option = new LaunchOption(config.getVersion(), authenticator, directory);
+            option.setMaxMemory(config.getMemory());
+            option.setWindowSize(config.getWindowSize());
+            Launch.launchVanilla(option);
         } catch (IOException e) {
             InfinityLauncher.LOGGER.error(e);
         }

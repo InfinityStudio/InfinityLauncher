@@ -37,7 +37,7 @@ public class LaunchTest {
 
     @Test
     public void launchVanilla2() throws Exception {
-        LaunchConfig config = new LaunchConfig("run/.minecraft", "1.10.2", 0, "gonglinyuan");
+        LaunchConfig config = new LaunchConfig("run/.minecraft", "1.10.2", 0, "gonglinyuan", 1024, null);
         Launch.launchVanilla(config);
     }
 }
